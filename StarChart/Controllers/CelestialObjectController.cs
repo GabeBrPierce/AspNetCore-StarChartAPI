@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StarChart.Data;
 
 namespace StarChart.Controllers
 {
-    public class CelestialObjectController : Controller
+    
+    [Route("")]
+    [ApiController]
+    public class CelestialObjectController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+        public CelestialObjectController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
     }
 }
